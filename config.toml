@@ -1,0 +1,60 @@
+baseurl = "https://hbpmedical.github.io/deployment/"
+canonifyurls = true
+googleAnalytics = "UA-80660232-2"
+languageCode = "en-uk"
+metadataformat = "yaml"
+theme = "hugo-material-docs"
+title = "Deployment Requirements"
+
+[params]
+    author = "HBP SP8 team"
+    copyright = "Released under the MIT license"
+    custom_css = []
+    custom_js = []
+    description = "Deployment requirements for the Medical Informatics Platform of the Human Brain Project."
+    favicon = ""
+    highlight_css = ""
+    logo = "images/hbp.png"
+    permalink = "#"
+    provider = ""
+    repo_url = "https://github.com/HBPMedical/deployment"
+    version = ""
+    editURL = "https://github.com/HBPMedical/deployment/edit/master/content/"
+[params.font]
+    code = "Ubuntu Mono"
+    text = "Ubuntu"
+[params.palette]
+    accent = "teal"
+    primary = "red"
+
+[social]
+    email = "hbp_medicalinformatics@chuv.ch"
+    github = "HBPMedical"
+    twitter = "HBPmedical"
+
+[[menu.main]]
+    name = "Hardware"
+    url = "hardware/"
+    weight = 10
+
+[[menu.main]]
+    name = "Operating Systems"
+    url = "os/"
+    weight = 20
+
+[[menu.main]]
+    name = "Software"
+    url = "software/"
+    weight = 30
+
+[[menu.main]]
+    name = "External Services"
+    url = "services/"
+    weight = 40
+
+[blackfriday]
+    fractions = true
+    plainIDAnchors = true
+    smartDashes = true
+    smartypants = true
+
