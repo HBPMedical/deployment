@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deployment Requirements</title>
+    <link>https://hbpmedical.github.io/deployment/</link>
+    <description>Recent content on Deployment Requirements</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <copyright>Released under the MIT license</copyright>
+    <lastBuildDate>Wed, 19 Apr 2017 18:58:51 +0200</lastBuildDate>
+    
+	<atom:link href="https://hbpmedical.github.io/deployment/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hardware</title>
+      <link>https://hbpmedical.github.io/deployment/hardware/</link>
+      <pubDate>Wed, 19 Apr 2017 18:58:51 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/hardware/</guid>
+      <description>This page provides the complete set of minimum requirements that have to be met by data providers wishing to deploy on-site an instance of the MIP (either MIP-Local or MIP-Federated).
+MIP-Local    Name CPU RAM Disk Network     All-in-one server 4-8 cores x64 16-32GB 50GB + 4EID Secure clinical network with limited access to external services    where EID stands for expected imaging data space.</description>
+    </item>
+    
+    <item>
+      <title>Operating Systems</title>
+      <link>https://hbpmedical.github.io/deployment/os/</link>
+      <pubDate>Wed, 19 Apr 2017 18:58:51 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/os/</guid>
+      <description>The whole stack of the MIP is based on DCOS and docker technologies. Therefore any linux distributions supporting a fairly recent version of docker represents the strict minimum. More specifically we support the following distribution out of the box:
+ Ubuntu Server 16.04 LTS Red Hat Enterprise Linux &amp;gt; 7.2 CentOS &amp;gt; 7.2 (soon)  OpenSSH server must also be installed and running to allow our deployment team to initiate the setup process.</description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://hbpmedical.github.io/deployment/software/</link>
+      <pubDate>Wed, 19 Apr 2017 18:58:51 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/software/</guid>
+      <description>The data providers must accept to install all the following software components on its machines dedicated to the MIP.
+External Software Here&amp;rsquo;s an exhaustive list of the software packaged into the MIP which was not developed by SP8:
+   Name Level License Version Deployment Required by     OpenSSH Infrastructure   Native MIP-Local   Java OpenJDK SE Infrastructure   Native/Container MIP-Local   Python2 Infrastructure   Native MIP-Local   Python3 Infrastructure   Native/Container MIP-Local   R Infrastructure   Container MIP-Local   Docker Infrastructure   Native MIP-Local   Mesos Infrastructure   Native MIP-Local   Zookeeper Infrastructure   Native MIP-Local   Chronos Infrastructure   Container MIP-Local   Marathon Infrastructure   Native MIP-Local   Git Infrastructure   Native MIP-Local   docker_py Infrastructure   Native MIP-Local   Logwatch Monitoring/Security   Native MIP-Local   fail2ban Monitoring/Security   Native MIP-Local   ufw Monitoring/Security   Native MIP-Local   PostgreSQL Everywhere   Container MIP-Local   slackclient_py Data Factory   Native Optional   Airflow Data Factory   Native MIP-Local   MatLab Data Factory Proprietary  Native MIP-Local   SPM Data Factory   Native MIP-Local   Spring Framework Web Portal   Container MIP-Local   Flyway Web Portal   Container MIP-Local   Nginx Everywhere   Container MIP-Local    SP8-made Software Here&amp;rsquo;s the list of software developed by SP8:</description>
+    </item>
+    
+    <item>
+      <title>External Services</title>
+      <link>https://hbpmedical.github.io/deployment/services/</link>
+      <pubDate>Wed, 19 Apr 2017 18:58:51 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/services/</guid>
+      <description>Here&amp;rsquo;s the list of services that must be accessible from any MIP dedicated machines for installation, configuration, update, and maintenance purposes:
+   Name Description IP/Hostname TLP&amp;gt;PORT&amp;gt;ALP&amp;gt;IN/OUT Required by     Remote Access SSH Only inbound service required. It is mainly used by our automated deployment scripts and by our deployment and support team to connect the machine using the provided VPN access. Inside Clinical Network (VPN) TCP&amp;gt;22&amp;gt;SSH&amp;gt;IN MIP-Local   Ubuntu French APT Servers Ubuntu France&amp;rsquo;s official APT server fr.</description>
+    </item>
+    
+    <item>
+      <title>Deployment requirements</title>
+      <link>https://hbpmedical.github.io/deployment/index/</link>
+      <pubDate>Fri, 03 Feb 2017 16:30:51 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/index/</guid>
+      <description>Welcome to this website which aims to provide a comprehensive list of minimum requirements in terms of:
+ Hardware Operating System Software External Services  to be able to install a full-blown version of the Medical Informatics Platform on site (either MIP-Local or MIP-federated).</description>
+    </item>
+    
+  </channel>
+</rss>
