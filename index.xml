@@ -40,7 +40,7 @@ MIP-Local    Name CPU RAM Disk Network     All-in-one server 4-8 cores x64 16-32
       <guid>https://hbpmedical.github.io/deployment/software/</guid>
       <description>The data providers must accept to install all the following software components on its machines dedicated to the MIP.
 External Software Here&amp;rsquo;s an exhaustive list of the software packaged into the MIP which was not developed by SP8:
-   Name Level License Version Deployment Required by     OpenSSH Infrastructure   Native MIP-Local   Java OpenJDK SE Infrastructure   Native/Container MIP-Local   Python2 Infrastructure   Native MIP-Local   Python3 Infrastructure   Native/Container MIP-Local   R Infrastructure   Container MIP-Local   Docker Infrastructure   Native MIP-Local   Mesos Infrastructure   Native MIP-Local   Zookeeper Infrastructure   Native MIP-Local   Chronos Infrastructure   Container MIP-Local   Marathon Infrastructure   Native MIP-Local   Git Infrastructure   Native MIP-Local   docker_py Infrastructure   Native MIP-Local   Logwatch Monitoring/Security   Native MIP-Local   fail2ban Monitoring/Security   Native MIP-Local   ufw Monitoring/Security   Native MIP-Local   PostgreSQL Everywhere   Container MIP-Local   slackclient_py Data Factory   Native Optional   Airflow Data Factory   Native MIP-Local   MatLab Data Factory Proprietary  Native MIP-Local   SPM Data Factory   Native MIP-Local   Spring Framework Web Portal   Container MIP-Local   Flyway Web Portal   Container MIP-Local   Nginx Everywhere   Container MIP-Local    SP8-made Software Here&amp;rsquo;s the list of software developed by SP8:</description>
+   Name Level License Version Deployment Required by     OpenSSH Infrastructure   Native MIP-Local   Java OpenJDK SE Infrastructure   Native/Container MIP-Local   Python2.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ External Software Here&amp;rsquo;s an exhaustive list of the software packaged i
       
       <guid>https://hbpmedical.github.io/deployment/services/</guid>
       <description>Here&amp;rsquo;s the list of services that must be accessible from any MIP dedicated machines for installation, configuration, update, and maintenance purposes:
-   Name Description IP/Hostname TLP&amp;gt;PORT&amp;gt;ALP&amp;gt;IN/OUT Required by     Remote Access SSH Only inbound service required. It is mainly used by our automated deployment scripts and by our deployment and support team to connect the machine using the provided VPN access. Inside Clinical Network (VPN) TCP&amp;gt;22&amp;gt;SSH&amp;gt;IN MIP-Local   Ubuntu French APT Servers Ubuntu France&amp;rsquo;s official APT server fr.</description>
+   Name Description IP/Hostname TLP&amp;gt;PORT&amp;gt;ALP&amp;gt;IN/OUT Required by     Remote Access SSH Only inbound service required. It is mainly used by our automated deployment scripts and by our deployment and support team to connect the machine using the provided VPN access. Inside Clinical Network (VPN) TCP&amp;gt;22&amp;gt;SSH&amp;gt;IN MIP-Local   Web Portal Main entry-point for MIP local users Inside Clinical Network TCP&amp;gt;80&amp;gt;HTTP&amp;gt;IN MIP-Local   Ubuntu French APT Servers Ubuntu France&amp;rsquo;s official APT server fr.</description>
     </item>
     
     <item>
