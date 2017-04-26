@@ -18,10 +18,10 @@ where EID stands for expected imaging data space.
 
 ### MIP-Federated
 
-| Name                                                                  |CPU          | RAM   | Disk             | Network
-|-----------------------------------------------------------------------|-------------|-------|------------------|-----------------------------------------------------------------------------
-| Data capture & anonymisation server                                   | 2 cores x64 | 2GB   | 50GB             | Secure clinical network
-| Pre-processing + Knowledge extraction server                          | 16 cores x64| 64GB  | 200GB + 40EID    | Research network with access to [external services](/services)
-| Backup server (required only other servers are not already backed up) | 1 core x64  | 2GB   | 40EID            | Access to the other servers
+| Name                                                                                                                                    |CPU          | RAM   | Disk             | Network
+|-----------------------------------------------------------------------------------------------------------------------------------------|-------------|-------|------------------|-----------------------------------------------------------------------------
+| Data capture & anonymisation machine (which does not need to be running all the time, only for the periodical export) | 1 cores x64 | 2GB   | 40GB             | Secure clinical network
+| Pre-processing + Knowledge extraction server                                                                                            | 16 cores x64| 64GB  | 200GB + 40EID    | Research network with access to [external services](/services)
+| Backup server (required only if other servers are not already backed up)                                                                   | 1 core x64  | 2GB   | 40EID            | Access to the other servers
 
 where EID stands for expected imaging data space.
