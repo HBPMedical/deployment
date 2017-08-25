@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Hardware - Deployment Requirements</title>
+    <title>data - Deployment Requirements</title>
     <meta name="generator" content="Hugo 0.20.7" />
 
     
     <meta name="description" content="Deployment requirements for the Medical Informatics Platform of the Human Brain Project.">
     
-    <link rel="canonical" href="https://hbpmedical.github.io/deployment/hardware/">
+    <link rel="canonical" href="https://hbpmedical.github.io/deployment/data/">
     
     <meta name="author" content="HBP SP8 team">
     
 
-    <meta property="og:url" content="https://hbpmedical.github.io/deployment/hardware/">
+    <meta property="og:url" content="https://hbpmedical.github.io/deployment/data/">
     <meta property="og:title" content="Deployment Requirements">
     <meta property="og:image" content="https://hbpmedical.github.io/deployment/images/hbp.png">
     <meta name="apple-mobile-web-app-title" content="Deployment Requirements">
@@ -94,7 +94,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Hardware
+        data
       </div>
     </div>
 
@@ -163,14 +163,11 @@
 
 
 
-<a class="current" title="Hardware" href="https://hbpmedical.github.io/deployment/hardware/">
+<a  title="Hardware" href="https://hbpmedical.github.io/deployment/hardware/">
 	
 	Hardware
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -238,11 +235,14 @@
 
 
 
-<a  title="Data" href="https://hbpmedical.github.io/deployment/data/">
+<a class="current" title="Data" href="https://hbpmedical.github.io/deployment/data/">
 	
 	Data
 </a>
 
+
+<ul id="scrollspy">
+</ul>
 
 
   
@@ -291,79 +291,296 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Hardware </h1>
+			<h1>data </h1>
 
 			
 
-<p>This page provides the complete set of minimum requirements that have to be met by data providers wishing to deploy on-site an instance of the MIP (either MIP-Local or MIP-Federated).</p>
+<p>In order to be pre-processed by the Data Factory, the imaging data have to meet some requirements, both regarding the images format and the images meta-data.</p>
 
-<h3 id="mip-local">MIP-Local</h3>
+<h2 id="images-format">Images format</h2>
+
+<ul>
+<li>The images must be full brain scans.</li>
+<li>The images must be provided either in DICOM or NIFTI format.</li>
+<li>The images must be high-resolution (max. 1.5 mm) T1-weighted sagittal images.</li>
+<li>If the dataset contains other types of images (that is not meeting the above description, e.g. fMRI data, T2 images, etc), a list of protocol names used and their compatibility status regarding the above criterion has to be provided.</li>
+<li>The images must contain at least 40 slices.</li>
+</ul>
+
+<h2 id="images-meta-data">Images Meta-data</h2>
+
+<p>Imaging meta-data typically are the information contained in the DICOM tags. If the images are provided in NIFTI format or some of the mandatory DICOM tags are missing from the images, those meta-data must be provided in one or several extra file(s) (e.g. JSON, CSV, etc).</p>
+
+<p>Here is a list of DICOM tags we are interested in :</p>
 
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>CPU</th>
-<th>RAM</th>
-<th>Disk</th>
-<th>Network</th>
+<th>TAG</th>
+<th>TYPE</th>
+<th>MANDATORY</th>
+<th>DESCRIPTION</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>All-in-one server</td>
-<td>4-8 cores x64</td>
-<td>16-32GB</td>
-<td>50GB + 4EID</td>
-<td>Secure clinical network with limited access to <a href="https://hbpmedical.github.io/deployment/services">external services</a></td>
+<td>PatientID</td>
+<td>LO</td>
+<td>Yes</td>
+<td>Patient identifier.</td>
+</tr>
+
+<tr>
+<td>StudyID</td>
+<td>SH</td>
+<td>Yes</td>
+<td>Study identifier. Used to identify a visit. (Unique per dataset or per patient)</td>
+</tr>
+
+<tr>
+<td>SeriesDescription</td>
+<td>LO</td>
+<td>Yes</td>
+<td>Series description. Used to describe the scanning sequence/protocol. <strong>Must be stable over time.</strong></td>
+</tr>
+
+<tr>
+<td>SeriesNumber</td>
+<td>IS</td>
+<td>Yes</td>
+<td>Series number. Used to identify a scan run.</td>
+</tr>
+
+<tr>
+<td>InstanceNumber</td>
+<td>IS</td>
+<td>Yes</td>
+<td>Image (slice) identifier.</td>
+</tr>
+
+<tr>
+<td>ImagePosition</td>
+<td>DS</td>
+<td>Yes</td>
+<td>Image (slice) position.</td>
+</tr>
+
+<tr>
+<td>ImageOrientation</td>
+<td>DS</td>
+<td>Yes</td>
+<td>Image (slice) orientation.</td>
+</tr>
+
+<tr>
+<td>SliceLocation</td>
+<td>DS</td>
+<td>Yes</td>
+<td>Slice location.</td>
+</tr>
+
+<tr>
+<td>SamplesPerPixel</td>
+<td>US</td>
+<td>Yes</td>
+<td>Number of samples (planes) per pixel. Usually, 1 for monochrome (gray scale) and palette color images, or 3 for RGB images.</td>
+</tr>
+
+<tr>
+<td>Rows</td>
+<td>US</td>
+<td>Yes</td>
+<td>Number of rows in the image.</td>
+</tr>
+
+<tr>
+<td>Columns</td>
+<td>US</td>
+<td>Yes</td>
+<td>Number of columns in the image.</td>
+</tr>
+
+<tr>
+<td>PixelSpacing</td>
+<td>DS</td>
+<td>Yes</td>
+<td>Distance between the center of each pixel.</td>
+</tr>
+
+<tr>
+<td>BitsAllocated</td>
+<td>US</td>
+<td>Yes</td>
+<td>Number of bits allocated for each pixel sample.</td>
+</tr>
+
+<tr>
+<td>BitsStored</td>
+<td>US</td>
+<td>Yes</td>
+<td>Number of bits stored for each pixel sample.</td>
+</tr>
+
+<tr>
+<td>HighBit</td>
+<td>US</td>
+<td>Yes</td>
+<td>Most significant bit for pixel sample data.</td>
+</tr>
+
+<tr>
+<td>AcquisitionDate</td>
+<td>DA</td>
+<td>1</td>
+<td>Acquisition date. We try to use it as the scan date.</td>
+</tr>
+
+<tr>
+<td>SeriesDate</td>
+<td>DA</td>
+<td>1</td>
+<td>Series (scan run) date. If AcquisitionDate is missing, we use it as a scan date.</td>
+</tr>
+
+<tr>
+<td>PatientAge</td>
+<td>AS</td>
+<td>2</td>
+<td>Patient age at scan date.</td>
+</tr>
+
+<tr>
+<td>PatientBirthDate</td>
+<td>DA</td>
+<td>2</td>
+<td>Patient&rsquo;s birth date.</td>
+</tr>
+
+<tr>
+<td>MagneticFieldStrength</td>
+<td>DS</td>
+<td>No</td>
+<td>Magnetic field strength.</td>
+</tr>
+
+<tr>
+<td>PatientSex</td>
+<td>LO</td>
+<td>No</td>
+<td>Patient gender.</td>
+</tr>
+
+<tr>
+<td>Manufacturer</td>
+<td>LO</td>
+<td>No</td>
+<td>Scanner manufacturer.</td>
+</tr>
+
+<tr>
+<td>ManufacturerModelName</td>
+<td>LO</td>
+<td>No</td>
+<td>Scanner model name.</td>
+</tr>
+
+<tr>
+<td>InstitutionName</td>
+<td>LO</td>
+<td>No</td>
+<td>Institution name.</td>
+</tr>
+
+<tr>
+<td>StudyDescription</td>
+<td>LO</td>
+<td>No</td>
+<td>Study (visit) description.</td>
+</tr>
+
+<tr>
+<td>SliceThickness</td>
+<td>DS</td>
+<td>No</td>
+<td>Slice thickness in mm.</td>
+</tr>
+
+<tr>
+<td>RepetitionTime</td>
+<td>DS</td>
+<td>No</td>
+<td>The period of time in msec between the beginning of a pulse sequence and the beginning of the succeeding (essentially identical) pulse sequence.</td>
+</tr>
+
+<tr>
+<td>EchoTime</td>
+<td>DS</td>
+<td>No</td>
+<td>Time in ms between the middle of the excitation pulse and the peak of the echo produced (kx=0).</td>
+</tr>
+
+<tr>
+<td>SpacingBetweenSlices</td>
+<td>DS</td>
+<td>No</td>
+<td>Spacing between slices in mm (from center to center).</td>
+</tr>
+
+<tr>
+<td>NumberOfPhaseEncodingSteps</td>
+<td>IS</td>
+<td>No</td>
+<td>Total number of lines in k-space in the &lsquo;y&rsquo; direction collected during acquisition.</td>
+</tr>
+
+<tr>
+<td>EchoTrainLength</td>
+<td>IS</td>
+<td>No</td>
+<td>Number of lines in k-space acquired per excitation per image.</td>
+</tr>
+
+<tr>
+<td>PercentPhaseFieldOfView</td>
+<td>DS</td>
+<td>No</td>
+<td>Ratio of field of view dimension in phase direction to field of view dimension in frequency direction, expressed as a percent.</td>
+</tr>
+
+<tr>
+<td>PixelBandwidth</td>
+<td>DS</td>
+<td>No</td>
+<td>Reciprocal of the total sampling period, in hertz per pixel.</td>
+</tr>
+
+<tr>
+<td>FlipAngle</td>
+<td>DS</td>
+<td>No</td>
+<td>Steady state angle in degrees to which the magnetic vector is flipped from the magnetic vector of the primary field.</td>
+</tr>
+
+<tr>
+<td>PercentSampling</td>
+<td>DS</td>
+<td>No</td>
+<td>Fraction of acquisition matrix lines acquired, expressed as a percent.</td>
+</tr>
+
+<tr>
+<td>EchoNumber</td>
+<td>IS</td>
+<td>No</td>
+<td>The echo number used in generating this image. In the case of segmented k-space, it is the effective Echo Number.</td>
 </tr>
 </tbody>
 </table>
 
-<p>where EID stands for expected imaging data space.</p>
+<p>For more information about the attributes type, have a look at : <a href="http://northstar-www.dartmouth.edu/doc/idl/html_6.2/Value_Representations.html">http://northstar-www.dartmouth.edu/doc/idl/html_6.2/Value_Representations.html</a>.</p>
 
-<h3 id="mip-federated">MIP-Federated</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>CPU</th>
-<th>RAM</th>
-<th>Disk</th>
-<th>Network</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Data capture &amp; anonymisation machine (which does not need to be running all the time, only for the periodical export)</td>
-<td>1 core x64</td>
-<td>2GB</td>
-<td>40GB</td>
-<td>Secure clinical network</td>
-</tr>
-
-<tr>
-<td>Pre-processing + Knowledge extraction server</td>
-<td>16 cores x64</td>
-<td>64GB</td>
-<td>200GB + 40EID</td>
-<td>Research network with access to <a href="https://hbpmedical.github.io/deployment/services">external services</a></td>
-</tr>
-
-<tr>
-<td>Backup server (required only if other servers are not already backed up)</td>
-<td>1 core x64</td>
-<td>2GB</td>
-<td>40EID</td>
-<td>Access to the other servers</td>
-</tr>
-</tbody>
-</table>
-
-<p>where EID stands for expected imaging data space.</p>
+<p>NOTE: If the &lsquo;MANDATORY&rsquo; column contains a number, only one of the tags marked with the same number is needed (e.g. only one of the &lsquo;PatientAge&rsquo; and &lsquo;PatientBirthDate&rsquo; tags is needed).</p>
 
 
 			<aside class="copyright" role="note">
@@ -382,18 +599,34 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
+      <a href="https://hbpmedical.github.io/deployment/services/" title="External Services">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              External Services
+            </div>
+          </div>
+        </div>
+      </a>
+  
   </div>
 
   <div class="next">
   
-      <a href="https://hbpmedical.github.io/deployment/os/" title="Operating Systems">
+      <a href="https://hbpmedical.github.io/deployment/" title="Deployment requirements">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Operating Systems
+              Deployment requirements
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

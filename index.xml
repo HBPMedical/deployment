@@ -54,13 +54,23 @@ External Software Here&amp;rsquo;s an exhaustive list of the software packaged i
     </item>
     
     <item>
+      <title>data</title>
+      <link>https://hbpmedical.github.io/deployment/data/</link>
+      <pubDate>Fri, 25 Aug 2017 16:21:25 +0200</pubDate>
+      
+      <guid>https://hbpmedical.github.io/deployment/data/</guid>
+      <description>In order to be pre-processed by the Data Factory, the imaging data have to meet some requirements, both regarding the images format and the images meta-data.
+Images format  The images must be full brain scans. The images must be provided either in DICOM or NIFTI format. The images must be high-resolution (max. 1.5 mm) T1-weighted sagittal images. If the dataset contains other types of images (that is not meeting the above description, e.</description>
+    </item>
+    
+    <item>
       <title>Deployment requirements</title>
-      <link>https://hbpmedical.github.io/deployment/index/</link>
+      <link>https://hbpmedical.github.io/deployment/</link>
       <pubDate>Fri, 03 Feb 2017 16:30:51 +0200</pubDate>
       
-      <guid>https://hbpmedical.github.io/deployment/index/</guid>
+      <guid>https://hbpmedical.github.io/deployment/</guid>
       <description>Welcome to this website which aims to provide a comprehensive list of minimum requirements in terms of:
- Hardware Operating System Software External Services  to be able to install a full-blown version of the Medical Informatics Platform on site (either MIP-Local or MIP-federated).</description>
+ Hardware Operating System Software External Services Data  to be able to install a full-blown version of the Medical Informatics Platform on site (either MIP-Local or MIP-federated).</description>
     </item>
     
   </channel>
