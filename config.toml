@@ -52,6 +52,11 @@ title = "Deployment Requirements"
     url = "services/"
     weight = 40
 
+[[menu.main]]
+    name = "Data"
+    url = "data/"
+    weight = 50
+
 [blackfriday]
     fractions = true
     plainIDAnchors = true

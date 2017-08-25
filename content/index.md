@@ -12,5 +12,6 @@ Welcome to this website which aims to provide a comprehensive list of minimum re
 - [Operating System](/os)
 - [Software](/software)
 - [External Services](/services)
+- [Data](/data)
 
 to be able to install a full-blown version of the Medical Informatics Platform on site (either MIP-Local or MIP-federated).
