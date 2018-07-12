@@ -6,22 +6,19 @@ draft: false
 
 ---
 
-This page provides the complete set of minimum requirements that have to be met by data providers wishing to deploy on-site an instance of the MIP (either MIP-Local or MIP-Federated).
+This page provides the complete set of minimum requirements that have to be met to deploy an instance of the MIP.
 
-### MIP-Local
+In this document, Portal-Only stands for a MIP instance that does not include the data-factory component. This means that no MRI data pre-processing pipeline will be available. On the other hand, Full-Stack means that all the MIP component (including the data-factory) will be installed.
 
-| Name                   |CPU            | RAM      | Disk           | Network
-|------------------------|---------------|----------|----------------|----------------------------------------------------------------------------
-| All-in-one server      | 4-8 cores x64 | 16-32GB  | 50GB + 4EID    | Secure clinical network with limited access to [external services](/services)
+As the MRI data pre-processing pipeline is highly resource consuming, it is strongly recommended to provide the MIP with enough hardware resources. For instance, 32 cores and 64GB memory seems to be a reasonnable configuration to process ~200 to ~400 scans.
 
-where EID stands for expected imaging data space.
+If needed, one can deploy the MIP on a cluster.
 
-### MIP-Federated
+### Minimum Requirements
 
-| Name                                                                                                                                    |CPU          | RAM   | Disk             | Network
-|-----------------------------------------------------------------------------------------------------------------------------------------|-------------|-------|------------------|-----------------------------------------------------------------------------
-| Data capture & anonymisation machine (which does not need to be running all the time, only for the periodical export) | 1 core x64 | 2GB   | 40GB             | Secure clinical network
-| Pre-processing + Knowledge extraction server                                                                                            | 16 cores x64| 64GB  | 200GB + 40EID    | Research network with access to [external services](/services)
-| Backup server (required only if other servers are not already backed up)                                                                   | 1 core x64  | 2GB   | 40EID            | Access to the other servers
+| Name        |CPU           | RAM  | Disk           | Network
+|-------------|--------------|------|----------------|----------------------------------------------------------------------------
+| Portal-Only |  8 cores x64 | 16GB | 100GB          | Secure clinical network with limited access to [external services](/services)
+| Full-Stack  | 16 cores x64 | 32GB | 200GB + 15*IDS | Secure clinical network with limited access to [external services](/services)
 
-where EID stands for expected imaging data space.
+where IDS stands for imaging data size.
