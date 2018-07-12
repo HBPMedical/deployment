@@ -295,9 +295,15 @@
 
 			
 
-<p>This page provides the complete set of minimum requirements that have to be met by data providers wishing to deploy on-site an instance of the MIP (either MIP-Local or MIP-Federated).</p>
+<p>This page provides the complete set of minimum requirements that have to be met to deploy an instance of the MIP.</p>
 
-<h3 id="mip-local">MIP-Local</h3>
+<p>In this document, Portal-Only stands for a MIP instance that does not include the data-factory component. This means that no MRI data pre-processing pipeline will be available. On the other hand, Full-Stack means that all the MIP component (including the data-factory) will be installed.</p>
+
+<p>As the MRI data pre-processing pipeline is highly resource consuming, it is strongly recommended to provide the MIP with enough hardware resources. For instance, 32 cores and 64GB memory seems to be a reasonnable configuration to process ~200 to ~400 scans.</p>
+
+<p>If needed, one can deploy the MIP on a cluster.</p>
+
+<h3 id="minimum-requirements">Minimum Requirements</h3>
 
 <table>
 <thead>
@@ -312,63 +318,29 @@
 
 <tbody>
 <tr>
-<td>All-in-one server</td>
-<td>4-8 cores x64</td>
-<td>16-32GB</td>
-<td>50GB + 4EID</td>
+<td>Portal-Only</td>
+<td>8 cores x64</td>
+<td>16GB</td>
+<td>100GB</td>
+<td>Secure clinical network with limited access to <a href="https://hbpmedical.github.io/deployment/services">external services</a></td>
+</tr>
+
+<tr>
+<td>Full-Stack</td>
+<td>16 cores x64</td>
+<td>32GB</td>
+<td>200GB + 15*IDS</td>
 <td>Secure clinical network with limited access to <a href="https://hbpmedical.github.io/deployment/services">external services</a></td>
 </tr>
 </tbody>
 </table>
 
-<p>where EID stands for expected imaging data space.</p>
-
-<h3 id="mip-federated">MIP-Federated</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>CPU</th>
-<th>RAM</th>
-<th>Disk</th>
-<th>Network</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Data capture &amp; anonymisation machine (which does not need to be running all the time, only for the periodical export)</td>
-<td>1 core x64</td>
-<td>2GB</td>
-<td>40GB</td>
-<td>Secure clinical network</td>
-</tr>
-
-<tr>
-<td>Pre-processing + Knowledge extraction server</td>
-<td>16 cores x64</td>
-<td>64GB</td>
-<td>200GB + 40EID</td>
-<td>Research network with access to <a href="https://hbpmedical.github.io/deployment/services">external services</a></td>
-</tr>
-
-<tr>
-<td>Backup server (required only if other servers are not already backed up)</td>
-<td>1 core x64</td>
-<td>2GB</td>
-<td>40EID</td>
-<td>Access to the other servers</td>
-</tr>
-</tbody>
-</table>
-
-<p>where EID stands for expected imaging data space.</p>
+<p>where IDS stands for imaging data size.</p>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2017 Released under the MIT license &ndash;
+				&copy; 2018 Released under the MIT license &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
